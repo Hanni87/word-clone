@@ -1,12 +1,20 @@
 import React from "react";
+import { range } from "../../utils";
+import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
 function GuessResults({ guesses }) {
   return (
     <div className="guess-results">
-      {guesses.map((guess, index) => {
+      {range(0, NUM_OF_GUESSES_ALLOWED).map((rowIndex) => {
         return (
-          <p className="guess" key={index}>
-            {guess}
+          <p className="guess" key={rowIndex}>
+            {range(0, 5).map((colIndex) => {
+              return (
+                <span className="cell" key={colIndex}>
+                  {guesses[rowIndex]?.charAt(colIndex)}
+                </span>
+              );
+            })}
           </p>
         );
       })}

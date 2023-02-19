@@ -14,7 +14,6 @@ function Game() {
   const [guesses, setGuesses] = React.useState([]);
 
   function addGuess(guess) {
-    console.log([...guesses, guess]);
     setGuesses([...guesses, guess]);
   }
 
